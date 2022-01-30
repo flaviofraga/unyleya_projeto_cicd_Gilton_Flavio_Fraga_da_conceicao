@@ -1,19 +1,4 @@
 # ASP.NET Core (.NET Framework)
-- task: Docker@2
-  inputs:
-    containerRegistry: 'DockerHub'
-    repository: 'unyleyaprojetoci'
-    command: 'buildAndPush'
-    Dockerfile: '**/Dockerfile'
-- task: Docker@2
-  inputs:
-    containerRegistry: 'DockerHub'
-    command: 'buildAndPush'
-    Dockerfile: '**/Dockerfile'
-# Build and test ASP.NET Core projects targeting the full .NET Framework.
-# Add steps that publish symbols, save build artifacts, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
-
 trigger:
 - main
 
@@ -82,5 +67,18 @@ steps:
   inputs:
        artifactName: # 'drop'
 
- 
+- task: Docker@2
+  inputs:
+    containerRegistry: 'DockerHub'
+    repository: 'unyleyaprojetoci'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
+- task: Docker@2
+  inputs:
+    containerRegistry: 'DockerHub'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
+# Build and test ASP.NET Core projects targeting the full .NET Framework.
+# Add steps that publish symbols, save build artifacts, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
